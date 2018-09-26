@@ -1,0 +1,175 @@
+# Project: Engine
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = font/Font.o font/FontHandler.o global/Camera.o global/Color.o global/Globals.o global/RootObject.o global/Tools.o global/Vector.o input/InputHandler.o input/InputListener.o input/KeyBind.o input/MouseHandler.o input/MouseListener.o interface/Button.o interface/DragPane.o interface/InputBox.o interface/InterfaceHandler.o interface/InterfaceListener.o interface/InterfaceObject.o interface/Label.o interface/MouseCursor.o interface/Pane.o keyframe/KeyFrameBar.o keyframe/KeyFrameColorProperty.o keyframe/KeyFrameHandler.o keyframe/KeyFrameListener.o keyframe/KeyFramePositionProperty.o keyframe/KeyFrameRotationProperty.o keyframe/KeyFrameScaleProperty.o keyframe/KeyFrameVectorProperty.o main/Engine.o main/MainEngine.o main/MainListener.o physics/PhysicsObject.o renderer/Renderer.o texture/Texture.o texture/TextureHandler.o timer/Timer.o timer/TimerHandler.o timer/TimerListener.o collision/CollisionHandler.o collision/CollisionListener.o collision/CollisionPair.o collision/algorithms/CollisionAlgorithm.o collision/algorithms/CASphereSphere.o collision/algorithms/CASphereLine.o keyframe/KeyFrameAlphaProperty.o http/HTTP.o http/HTTPThread.o $(RES)
+LINKOBJ  = font/Font.o font/FontHandler.o global/Camera.o global/Color.o global/Globals.o global/RootObject.o global/Tools.o global/Vector.o input/InputHandler.o input/InputListener.o input/KeyBind.o input/MouseHandler.o input/MouseListener.o interface/Button.o interface/DragPane.o interface/InputBox.o interface/InterfaceHandler.o interface/InterfaceListener.o interface/InterfaceObject.o interface/Label.o interface/MouseCursor.o interface/Pane.o keyframe/KeyFrameBar.o keyframe/KeyFrameColorProperty.o keyframe/KeyFrameHandler.o keyframe/KeyFrameListener.o keyframe/KeyFramePositionProperty.o keyframe/KeyFrameRotationProperty.o keyframe/KeyFrameScaleProperty.o keyframe/KeyFrameVectorProperty.o main/Engine.o main/MainEngine.o main/MainListener.o physics/PhysicsObject.o renderer/Renderer.o texture/Texture.o texture/TextureHandler.o timer/Timer.o timer/TimerHandler.o timer/TimerListener.o collision/CollisionHandler.o collision/CollisionListener.o collision/CollisionPair.o collision/algorithms/CollisionAlgorithm.o collision/algorithms/CASphereSphere.o collision/algorithms/CASphereLine.o keyframe/KeyFrameAlphaProperty.o http/HTTP.o http/HTTPThread.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  -mmmx 
+INCS =  -I"C:/Dev-Cpp/include"  -I"C:/Projects/Engine"  -I"C:/Projects/Engine/freetype-2.1.10/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include"  -I"C:/Projects/Engine"  -I"C:/Projects/Engine/freetype-2.1.10/include" 
+BIN  = Engine.a
+CXXFLAGS = $(CXXINCS)   -O3 -mmmx
+CFLAGS = $(INCS)   -O3 -mmmx
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Engine.a all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(LINKOBJ)
+	ar r $(BIN) $(LINKOBJ)
+	ranlib $(BIN)
+
+font/Font.o: font/Font.cpp
+	$(CPP) -c font/Font.cpp -o font/Font.o $(CXXFLAGS)
+
+font/FontHandler.o: font/FontHandler.cpp
+	$(CPP) -c font/FontHandler.cpp -o font/FontHandler.o $(CXXFLAGS)
+
+global/Camera.o: global/Camera.cpp
+	$(CPP) -c global/Camera.cpp -o global/Camera.o $(CXXFLAGS)
+
+global/Color.o: global/Color.cpp
+	$(CPP) -c global/Color.cpp -o global/Color.o $(CXXFLAGS)
+
+global/Globals.o: global/Globals.cpp
+	$(CPP) -c global/Globals.cpp -o global/Globals.o $(CXXFLAGS)
+
+global/RootObject.o: global/RootObject.cpp
+	$(CPP) -c global/RootObject.cpp -o global/RootObject.o $(CXXFLAGS)
+
+global/Tools.o: global/Tools.cpp
+	$(CPP) -c global/Tools.cpp -o global/Tools.o $(CXXFLAGS)
+
+global/Vector.o: global/Vector.cpp
+	$(CPP) -c global/Vector.cpp -o global/Vector.o $(CXXFLAGS)
+
+input/InputHandler.o: input/InputHandler.cpp
+	$(CPP) -c input/InputHandler.cpp -o input/InputHandler.o $(CXXFLAGS)
+
+input/InputListener.o: input/InputListener.cpp
+	$(CPP) -c input/InputListener.cpp -o input/InputListener.o $(CXXFLAGS)
+
+input/KeyBind.o: input/KeyBind.cpp
+	$(CPP) -c input/KeyBind.cpp -o input/KeyBind.o $(CXXFLAGS)
+
+input/MouseHandler.o: input/MouseHandler.cpp
+	$(CPP) -c input/MouseHandler.cpp -o input/MouseHandler.o $(CXXFLAGS)
+
+input/MouseListener.o: input/MouseListener.cpp
+	$(CPP) -c input/MouseListener.cpp -o input/MouseListener.o $(CXXFLAGS)
+
+interface/Button.o: interface/Button.cpp
+	$(CPP) -c interface/Button.cpp -o interface/Button.o $(CXXFLAGS)
+
+interface/DragPane.o: interface/DragPane.cpp
+	$(CPP) -c interface/DragPane.cpp -o interface/DragPane.o $(CXXFLAGS)
+
+interface/InputBox.o: interface/InputBox.cpp
+	$(CPP) -c interface/InputBox.cpp -o interface/InputBox.o $(CXXFLAGS)
+
+interface/InterfaceHandler.o: interface/InterfaceHandler.cpp
+	$(CPP) -c interface/InterfaceHandler.cpp -o interface/InterfaceHandler.o $(CXXFLAGS)
+
+interface/InterfaceListener.o: interface/InterfaceListener.cpp
+	$(CPP) -c interface/InterfaceListener.cpp -o interface/InterfaceListener.o $(CXXFLAGS)
+
+interface/InterfaceObject.o: interface/InterfaceObject.cpp
+	$(CPP) -c interface/InterfaceObject.cpp -o interface/InterfaceObject.o $(CXXFLAGS)
+
+interface/Label.o: interface/Label.cpp
+	$(CPP) -c interface/Label.cpp -o interface/Label.o $(CXXFLAGS)
+
+interface/MouseCursor.o: interface/MouseCursor.cpp
+	$(CPP) -c interface/MouseCursor.cpp -o interface/MouseCursor.o $(CXXFLAGS)
+
+interface/Pane.o: interface/Pane.cpp
+	$(CPP) -c interface/Pane.cpp -o interface/Pane.o $(CXXFLAGS)
+
+keyframe/KeyFrameBar.o: keyframe/KeyFrameBar.cpp
+	$(CPP) -c keyframe/KeyFrameBar.cpp -o keyframe/KeyFrameBar.o $(CXXFLAGS)
+
+keyframe/KeyFrameColorProperty.o: keyframe/KeyFrameColorProperty.cpp
+	$(CPP) -c keyframe/KeyFrameColorProperty.cpp -o keyframe/KeyFrameColorProperty.o $(CXXFLAGS)
+
+keyframe/KeyFrameHandler.o: keyframe/KeyFrameHandler.cpp
+	$(CPP) -c keyframe/KeyFrameHandler.cpp -o keyframe/KeyFrameHandler.o $(CXXFLAGS)
+
+keyframe/KeyFrameListener.o: keyframe/KeyFrameListener.cpp
+	$(CPP) -c keyframe/KeyFrameListener.cpp -o keyframe/KeyFrameListener.o $(CXXFLAGS)
+
+keyframe/KeyFramePositionProperty.o: keyframe/KeyFramePositionProperty.cpp
+	$(CPP) -c keyframe/KeyFramePositionProperty.cpp -o keyframe/KeyFramePositionProperty.o $(CXXFLAGS)
+
+keyframe/KeyFrameRotationProperty.o: keyframe/KeyFrameRotationProperty.cpp
+	$(CPP) -c keyframe/KeyFrameRotationProperty.cpp -o keyframe/KeyFrameRotationProperty.o $(CXXFLAGS)
+
+keyframe/KeyFrameScaleProperty.o: keyframe/KeyFrameScaleProperty.cpp
+	$(CPP) -c keyframe/KeyFrameScaleProperty.cpp -o keyframe/KeyFrameScaleProperty.o $(CXXFLAGS)
+
+keyframe/KeyFrameVectorProperty.o: keyframe/KeyFrameVectorProperty.cpp
+	$(CPP) -c keyframe/KeyFrameVectorProperty.cpp -o keyframe/KeyFrameVectorProperty.o $(CXXFLAGS)
+
+main/Engine.o: main/Engine.cpp
+	$(CPP) -c main/Engine.cpp -o main/Engine.o $(CXXFLAGS)
+
+main/MainEngine.o: main/MainEngine.cpp
+	$(CPP) -c main/MainEngine.cpp -o main/MainEngine.o $(CXXFLAGS)
+
+main/MainListener.o: main/MainListener.cpp
+	$(CPP) -c main/MainListener.cpp -o main/MainListener.o $(CXXFLAGS)
+
+physics/PhysicsObject.o: physics/PhysicsObject.cpp
+	$(CPP) -c physics/PhysicsObject.cpp -o physics/PhysicsObject.o $(CXXFLAGS)
+
+renderer/Renderer.o: renderer/Renderer.cpp
+	$(CPP) -c renderer/Renderer.cpp -o renderer/Renderer.o $(CXXFLAGS)
+
+texture/Texture.o: texture/Texture.cpp
+	$(CPP) -c texture/Texture.cpp -o texture/Texture.o $(CXXFLAGS)
+
+texture/TextureHandler.o: texture/TextureHandler.cpp
+	$(CPP) -c texture/TextureHandler.cpp -o texture/TextureHandler.o $(CXXFLAGS)
+
+timer/Timer.o: timer/Timer.cpp
+	$(CPP) -c timer/Timer.cpp -o timer/Timer.o $(CXXFLAGS)
+
+timer/TimerHandler.o: timer/TimerHandler.cpp
+	$(CPP) -c timer/TimerHandler.cpp -o timer/TimerHandler.o $(CXXFLAGS)
+
+timer/TimerListener.o: timer/TimerListener.cpp
+	$(CPP) -c timer/TimerListener.cpp -o timer/TimerListener.o $(CXXFLAGS)
+
+collision/CollisionHandler.o: collision/CollisionHandler.cpp
+	$(CPP) -c collision/CollisionHandler.cpp -o collision/CollisionHandler.o $(CXXFLAGS)
+
+collision/CollisionListener.o: collision/CollisionListener.cpp
+	$(CPP) -c collision/CollisionListener.cpp -o collision/CollisionListener.o $(CXXFLAGS)
+
+collision/CollisionPair.o: collision/CollisionPair.cpp
+	$(CPP) -c collision/CollisionPair.cpp -o collision/CollisionPair.o $(CXXFLAGS)
+
+collision/algorithms/CollisionAlgorithm.o: collision/algorithms/CollisionAlgorithm.cpp
+	$(CPP) -c collision/algorithms/CollisionAlgorithm.cpp -o collision/algorithms/CollisionAlgorithm.o $(CXXFLAGS)
+
+collision/algorithms/CASphereSphere.o: collision/algorithms/CASphereSphere.cpp
+	$(CPP) -c collision/algorithms/CASphereSphere.cpp -o collision/algorithms/CASphereSphere.o $(CXXFLAGS)
+
+collision/algorithms/CASphereLine.o: collision/algorithms/CASphereLine.cpp
+	$(CPP) -c collision/algorithms/CASphereLine.cpp -o collision/algorithms/CASphereLine.o $(CXXFLAGS)
+
+keyframe/KeyFrameAlphaProperty.o: keyframe/KeyFrameAlphaProperty.cpp
+	$(CPP) -c keyframe/KeyFrameAlphaProperty.cpp -o keyframe/KeyFrameAlphaProperty.o $(CXXFLAGS)
+
+http/HTTP.o: http/HTTP.cpp
+	$(CPP) -c http/HTTP.cpp -o http/HTTP.o $(CXXFLAGS)
+
+http/HTTPThread.o: http/HTTPThread.cpp
+	$(CPP) -c http/HTTPThread.cpp -o http/HTTPThread.o $(CXXFLAGS)

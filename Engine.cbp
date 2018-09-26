@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Engine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="Engine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add directory="D:/q/Projects/Engine/" />
+					<Add directory="C:/Projects/freetype-2.6/include" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="C:/Projects/Engine" />
+			<Add directory="C:/Projects/Engine/freetype-2.1.10/include" />
+			<Add directory="Q:/Projects/Engine" />
+			<Add directory="Q:/Projects/Engine/freetype-2.1.10/include" />
+		</Compiler>
+		<Unit filename="collision/CollisionHandler.cpp" />
+		<Unit filename="collision/CollisionHandler.h" />
+		<Unit filename="collision/CollisionListener.cpp" />
+		<Unit filename="collision/CollisionListener.h" />
+		<Unit filename="collision/CollisionPair.cpp" />
+		<Unit filename="collision/CollisionPair.h" />
+		<Unit filename="collision/algorithms/CASphereLine.cpp" />
+		<Unit filename="collision/algorithms/CASphereLine.h" />
+		<Unit filename="collision/algorithms/CASphereSphere.cpp" />
+		<Unit filename="collision/algorithms/CASphereSphere.h" />
+		<Unit filename="collision/algorithms/CollisionAlgorithm.cpp" />
+		<Unit filename="collision/algorithms/CollisionAlgorithm.h" />
+		<Unit filename="collision/objects/CollisionLine.h" />
+		<Unit filename="collision/objects/CollisionObject.h" />
+		<Unit filename="collision/objects/CollisionSphere.h" />
+		<Unit filename="font/Font.cpp" />
+		<Unit filename="font/Font.h" />
+		<Unit filename="font/FontHandler.cpp" />
+		<Unit filename="font/FontHandler.h" />
+		<Unit filename="global/Camera.cpp" />
+		<Unit filename="global/Camera.h" />
+		<Unit filename="global/Color.cpp" />
+		<Unit filename="global/Color.h" />
+		<Unit filename="global/GlobalValues.h" />
+		<Unit filename="global/Globals.cpp" />
+		<Unit filename="global/Globals.h" />
+		<Unit filename="global/RootObject.cpp" />
+		<Unit filename="global/RootObject.h" />
+		<Unit filename="global/Tools.cpp" />
+		<Unit filename="global/Tools.h" />
+		<Unit filename="global/Vector.cpp" />
+		<Unit filename="global/Vector.h" />
+		<Unit filename="http/HTTP.cpp" />
+		<Unit filename="http/HTTP.h" />
+		<Unit filename="http/HTTPThread.cpp" />
+		<Unit filename="http/HTTPThread.h" />
+		<Unit filename="input/InputHandler.cpp" />
+		<Unit filename="input/InputHandler.h" />
+		<Unit filename="input/InputListener.cpp" />
+		<Unit filename="input/InputListener.h" />
+		<Unit filename="input/KeyBind.cpp" />
+		<Unit filename="input/KeyBind.h" />
+		<Unit filename="input/MouseHandler.cpp" />
+		<Unit filename="input/MouseHandler.h" />
+		<Unit filename="input/MouseListener.cpp" />
+		<Unit filename="input/MouseListener.h" />
+		<Unit filename="interface/Button.cpp" />
+		<Unit filename="interface/Button.h" />
+		<Unit filename="interface/DragPane.cpp" />
+		<Unit filename="interface/DragPane.h" />
+		<Unit filename="interface/InputBox.cpp" />
+		<Unit filename="interface/InputBox.h" />
+		<Unit filename="interface/InterfaceHandler.cpp" />
+		<Unit filename="interface/InterfaceHandler.h" />
+		<Unit filename="interface/InterfaceListener.cpp" />
+		<Unit filename="interface/InterfaceListener.h" />
+		<Unit filename="interface/InterfaceObject.cpp" />
+		<Unit filename="interface/InterfaceObject.h" />
+		<Unit filename="interface/Label.cpp" />
+		<Unit filename="interface/Label.h" />
+		<Unit filename="interface/MouseCursor.cpp" />
+		<Unit filename="interface/MouseCursor.h" />
+		<Unit filename="interface/Pane.cpp" />
+		<Unit filename="interface/Pane.h" />
+		<Unit filename="keyframe/KeyFrameAlphaProperty.cpp" />
+		<Unit filename="keyframe/KeyFrameAlphaProperty.h" />
+		<Unit filename="keyframe/KeyFrameBar.cpp" />
+		<Unit filename="keyframe/KeyFrameBar.h" />
+		<Unit filename="keyframe/KeyFrameColorProperty.cpp" />
+		<Unit filename="keyframe/KeyFrameColorProperty.h" />
+		<Unit filename="keyframe/KeyFrameHandler.cpp" />
+		<Unit filename="keyframe/KeyFrameHandler.h" />
+		<Unit filename="keyframe/KeyFrameListener.cpp" />
+		<Unit filename="keyframe/KeyFrameListener.h" />
+		<Unit filename="keyframe/KeyFramePositionProperty.cpp" />
+		<Unit filename="keyframe/KeyFramePositionProperty.h" />
+		<Unit filename="keyframe/KeyFrameProperty.h" />
+		<Unit filename="keyframe/KeyFrameRotationProperty.cpp" />
+		<Unit filename="keyframe/KeyFrameRotationProperty.h" />
+		<Unit filename="keyframe/KeyFrameScaleProperty.cpp" />
+		<Unit filename="keyframe/KeyFrameScaleProperty.h" />
+		<Unit filename="keyframe/KeyFrameVectorProperty.cpp" />
+		<Unit filename="keyframe/KeyFrameVectorProperty.h" />
+		<Unit filename="main/Engine.cpp" />
+		<Unit filename="main/Engine.h" />
+		<Unit filename="main/MainEngine.cpp" />
+		<Unit filename="main/MainEngine.h" />
+		<Unit filename="main/MainListener.cpp" />
+		<Unit filename="main/MainListener.h" />
+		<Unit filename="physics/PhysicsObject.cpp" />
+		<Unit filename="physics/PhysicsObject.h" />
+		<Unit filename="renderer/Renderer.cpp" />
+		<Unit filename="renderer/Renderer.h" />
+		<Unit filename="texture/Texture.cpp" />
+		<Unit filename="texture/Texture.h" />
+		<Unit filename="texture/TextureHandler.cpp" />
+		<Unit filename="texture/TextureHandler.h" />
+		<Unit filename="timer/Timer.cpp" />
+		<Unit filename="timer/Timer.h" />
+		<Unit filename="timer/TimerHandler.cpp" />
+		<Unit filename="timer/TimerHandler.h" />
+		<Unit filename="timer/TimerListener.cpp" />
+		<Unit filename="timer/TimerListener.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
