@@ -1,0 +1,30 @@
+// Lets put some comments on top
+// Line 2 of comments
+
+// Line 4 also
+
+Container(login)
+position: 10, 20
+size: 20, 30
+
+  Input(username)
+  position: 123, 345
+  size: 234, 345
+  otherRenderOptions: bla
+  accepts: [a-zA-Z0-9]
+  onBlur: app::cloud::checkUser(this))
+
+  Input(password)
+  position: 123, 456
+  size: 234, 345
+  accepts: *
+  mask: [*]
+  onEnter: login(Input.username, this.password)
+  
+  Button(submit-login)
+  position: ...
+  onClick: login(Input.username, Input.password)
+
+// login(username, password){
+//  app::cloud::login(username, password);
+// }

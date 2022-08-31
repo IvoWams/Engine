@@ -1,0 +1,13 @@
+string = [a-zA-Z0-9]
+integer = 0-9
+identifier = [a-zA-Z_-]
+comma-separated-value = value, {",", comma-separated-value}
+key = string - ":"
+value = string - "\n"
+
+document = { element }
+element = element-type, ":", "\n", key-value-pairs
+element-type = identifier
+key-value-pairs = { key, ":", comma-separated-value | , "\n" }
+
+comments = "//", * - "\n", "\n";

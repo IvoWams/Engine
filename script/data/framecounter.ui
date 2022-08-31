@@ -1,0 +1,6 @@
+Label:
+    position: 1, 1
+    hidden: true
+    onFrame: app::logic::fps()
+
+
