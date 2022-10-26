@@ -1,12 +1,12 @@
-#ifndef APP_TEST_TESTLISTENER_H
-#define APP_TEST_TESTLISTENER_H
+#ifndef ENGINE_TEST_TESTLISTENER_H
+#define ENGINE_TEST_TESTLISTENER_H
 
-#include "../../event/Listener.h"
+#include "engine/event/Listener.h"
 #include "TestEvent.h"
 
-using namespace app::event;
+using namespace engine::event;
 
-namespace app::test
+namespace engine::test
 {
     class TestListener :
         public Listener<TestEvent>,

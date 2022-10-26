@@ -7,7 +7,7 @@
 #include "../../script/parser/Document.h"
 #include "../../script/parser/Tokenizer.h"
 
-using namespace app::script::parser;
+using namespace engine::script::parser;
 
 int main()
 {

@@ -1,13 +1,13 @@
-#ifndef APP_TEST_TESTDISPATCHER_H
-#define APP_TEST_TESTDISPATCHER_H
+#ifndef ENGINE_TEST_TESTDISPATCHER_H
+#define ENGINE_TEST_TESTDISPATCHER_H
 
-#include "../../event/Dispatcher.h"
+#include "engine/event/Dispatcher.h"
 #include "TestEvent.h"
 #include "AnotherEvent.h"
 
-using namespace app::event;
+using namespace engine::event;
 
-namespace app::test
+namespace engine::test
 {
     class TestDispatcher :
         public Dispatcher<TestEvent>,

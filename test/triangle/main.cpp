@@ -2,7 +2,7 @@
 #include "../../math/Vector.h"
 #include "../../math/Triangle.h"
 
-using namespace math;
+using namespace engine::math;
 
 int main()
 {

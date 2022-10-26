@@ -1,13 +1,13 @@
-#ifndef APP_TEST_TESTEVENT_H
-#define APP_TEST_TESTEVENT_H
+#ifndef ENGINE_TEST_TESTEVENT_H
+#define ENGINE_TEST_TESTEVENT_H
 
 #include <string>
-#include "../../event/Event.h"
+#include "engine/event/Event.h"
 
-using namespace app::event;
+using namespace engine::event;
 using namespace std;
 
-namespace app::test
+namespace engine::test
 {
     class TestEvent : Event
     {

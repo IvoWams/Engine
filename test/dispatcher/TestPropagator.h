@@ -1,12 +1,12 @@
-#ifndef APP_TEST_PROPAGATOR_H
-#define APP_TEST_PROPAGATOR_H
+#ifndef ENGINE_TEST_PROPAGATOR_H
+#define ENGINE_TEST_PROPAGATOR_H
 
-#include "../../event/Propagator.h"
+#include "engine/event/Propagator.h"
 #include "TestEvent.h"
 
-using namespace app::event;
+using namespace engine::event;
 
-namespace app::test
+namespace engine::test
 {
     class TestPropagator : public Propagator<TestEvent>
     {

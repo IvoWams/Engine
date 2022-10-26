@@ -1,7 +1,9 @@
 #include "../../math/Vector.h"
 #include <stdio.h>
 
-void outputVector(const math::Vector& vector)
+using namespace engine::math;
+
+void outputVector(const Vector& vector)
 {
     printf(
         "{m: %p, x: %f, y: %f, z: %f}\n",
@@ -15,7 +17,7 @@ void outputVector(const math::Vector& vector)
 int specialcontext()
 {
     printf("Special context\n");
-    math::Vector a{1, 2, 3}, b{2, 3, 4}, c{1, 2, 3};
+    Vector a{1, 2, 3}, b{2, 3, 4}, c{1, 2, 3};
 
     outputVector(a);
     outputVector(b);
@@ -30,7 +32,7 @@ int specialcontext()
 
     outputVector(c);
 
-    math::Vector d{0, 0, 0};
+    Vector d{0, 0, 0};
 
     outputVector(d);
 
@@ -48,6 +50,8 @@ int specialcontext()
     // All temporary (rvalue) are not deleted
 
     printf("End of specialcontext\n");
+
+    return 0;
 }
 
 int main()

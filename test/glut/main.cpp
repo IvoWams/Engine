@@ -1,4 +1,5 @@
-#include <GL/glut.h>
+// No glut in windows yet
+#include <GL/glut32.h>
 
 float angle = 0.0f;
 void renderScene()

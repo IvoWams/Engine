@@ -4,7 +4,7 @@
 #include "AnotherEvent.h"
 #include "TestPropagator.h"
 
-using namespace app::test;
+using namespace engine::test;
 
 int main()
 {

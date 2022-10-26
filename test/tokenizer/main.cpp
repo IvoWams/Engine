@@ -5,9 +5,9 @@
 #include <sstream>
 #include <filesystem>
 #include <unistd.h>
-#include "../../script/Tokenizer.h"
+#include "../../script/parser/Tokenizer.h"
 
-using namespace app::script;
+using namespace engine::script::parser;
 
 int main()
 {
