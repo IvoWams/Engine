@@ -1,0 +1,108 @@
+Goal
+
+We need some kind of internal structure before we are able to talk to it. Below is a hypothetical structure, written in the hypothetical script language
+
+class Engine {
+	array<GameContainer> gameContainers;
+	array<UiContainer> uiContainers;
+
+    // Lib to do stuff
+    GameHandler game
+    UIHandler ui
+    SystemHandler system
+}
+
+class GameContainer {
+	String name;
+	Timestamp created;
+	...
+	
+	array<Entity> entities;
+	array<Property> properties;
+	array<Condition> conditions;
+	array<Trigger> triggers;
+	array<Resource> resources;
+}
+
+class UiContainer {
+	String name;
+	Timestamp created;
+	...
+	
+	array<Element> elements;
+}
+
+class Element {
+    ...
+}
+
+class Button extends Element {
+    ...
+}
+
+So how would our script use this to, say, do something when the button is pressed
+
+file.script
+-----------------------
+
+void main()
+{
+    Button button1 = Engine.ui.createButton("button_1", ...)
+    Button button2 = Engine.ui.createButton("button_2", ...)
+    Button button3 = Engine.ui.createButton("button_3", ...)
+    Button button4 = Engine.ui.createButton("button_4", ...)
+
+    button1.onPress = () {
+        Engine.system.close();
+    }
+
+    button2.onPress = closeEngine();
+
+    button3.onPress = closeAfterSecondsAndIfButton1(button3, 5);
+
+    Engine.uiHandler.addElement(button1);
+    ...
+
+
+    button4.onPress = () {
+        new closeAfterXSeconds(5);
+    }
+}
+
+void closeEngine()
+{
+    Engine.system.close();
+}
+
+void closeAfterSecondsAndIfButton1(Button button, int seconds)
+{
+    if (button.name == "button_1") {
+        Timer timer = new Timer(seconds, "seconds");
+        Trigger trigger = new Trigger(timer, closeEngine());
+        Engine.triggers.add(trigger);
+    }
+}
+
+----
+
+Lets make a class for this functionality
+
+closeAfterXSeconds.class
+-------------------------------
+
+class closeAfterXSeconds
+{
+    // Constructor
+    closeAfterXSeconds(int seconds)
+    {
+        Timer timer = new Timer(seconds, "seconds");
+        Trigger trigger = new Trigger(timer, closeEngine());
+        Engine.triggers.add(trigger);
+    }
+
+    closeEngine()
+    {
+        Engine.system.close();
+    }
+}
+

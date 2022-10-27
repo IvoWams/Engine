@@ -2,43 +2,24 @@
 #define ENGINE_SCRIPT_PARSER_DOCUMENT_H
 
 #include "AbstractParser.h"
-#include "Element.h"
+#include "Declaration.h"
+#include "Repeatable.h"
 #include <vector>
 
 namespace engine::script::parser
 {
     struct Document : AbstractParser
     {
-        std::vector<Element*> elements;
+        // std::vector<Header*> headers;
+        Repeatable<Declaration> *declarations;
 
         Document(Tokenizer *tokenizer) : AbstractParser(tokenizer) {};
 
         bool parse()
         {
-            while (tokenizer->hasTokens()) {
-
-                tokenizer->trim();
-
-                auto comment = tokenizer->find("//");
-                if (comment == 0) {
-                    tokenizer->moveLine();
-                    continue;
-                }
-
-
-                auto element = new Element(tokenizer);
-                element->parse() ? elements.push_back(element) : delete element;
-
-                
-                // auto function = new Function(tokenizer);
-                // function->parse() ? functions.push_back(function) : delete function;
-
-            }
-
-            if (elements.size() == 0) {
-                // Where can we store error messages ?
-                return false;
-            }
+            // headers = new Repeatable<Header>(tokenizer);
+            declarations = new Repeatable<Declaration>(tokenizer);
+            declarations->parse();
 
             return true;
         }

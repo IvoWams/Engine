@@ -4,13 +4,15 @@
 #include <string>
 #include <sstream>
 
-#include "../../script/parser/Document.h"
-#include "../../script/parser/Tokenizer.h"
+#include "../../engine/script/parser/Document.h"
+#include "../../engine/script/parser/Tokenizer.h"
 
 using namespace engine::script::parser;
+using namespace engine::script::parser::exception;
 
 int main()
 {
+    /*
     std::string filename = "../../script/data/login.ui";
     std::stringstream buffer;
     std::ifstream filereader;
@@ -23,12 +25,21 @@ int main()
 
     buffer << filereader.rdbuf();
     std::string data = buffer.str();
+    */
 
-    Document document{new Tokenizer(data)};
-    auto success = document.parse();
+   std::string script = "ReturnType functionName(ParameterType parameterValue)";
 
-    if (success) {
-        printf("Parsing successful!\n");
+    Document document{new Tokenizer(script)};
+
+    try {
+        auto success = document.parse();
+        if (success) {
+            printf("Parsing successful!\n");
+        }
+        
+    } catch (UnexpectedEndOfFile& e) {
+        printf("Unexpected end of file!\n");
     }
+
 
 }

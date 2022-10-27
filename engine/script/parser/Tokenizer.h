@@ -3,6 +3,9 @@
 
 #include <string>
 #include <algorithm>
+#include "Exception/UnexpectedEndOfFile.h"
+
+using namespace engine::script::parser::exception;
 
 namespace engine::script::parser
 {
@@ -25,6 +28,15 @@ namespace engine::script::parser
         {
             return tokens.substr(0, bytes);
         };
+
+        std::string readWord()
+        {
+            int eow = tokens.find_first_of(" \t\n");
+            if (eow == std::string::npos) {
+                return tokens;
+            }
+            return read(eow);
+        }
 
         std::string readLine()
         {
@@ -53,8 +65,19 @@ namespace engine::script::parser
 
         void move(int bytes)
         {
+            if (tokens.length() < bytes) {
+                throw UnexpectedEndOfFile(this);
+            }
             tokens = tokens.substr(bytes);
         };
+
+        void move(std::string bytes)
+        {
+            if (tokens.length() < bytes.length()) {
+                throw UnexpectedEndOfFile(this);
+            }
+            tokens = tokens.substr(bytes.length());
+        }
 
         int left()
         {
@@ -78,6 +101,30 @@ namespace engine::script::parser
                     }
                 )
             );
+        }
+
+        void expect(std::string value)
+        {
+            auto seen = read(std::min({value.length(), tokens.length()}));
+            if (seen != value) {
+                printf(
+                    "Syntax error at %d:%d\nExpected %s but got %s",
+                    getColumn(),
+                    getRow(),
+                    value,
+                    seen
+                );
+            }
+        }
+
+        int getColumn()
+        {
+            return 0;
+        }
+
+        int getRow()
+        {
+            return 0;
         }
     };
 }

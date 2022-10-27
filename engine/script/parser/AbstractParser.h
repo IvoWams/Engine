@@ -18,6 +18,21 @@ namespace engine::script::parser
         {
             return false;
         }
+
+        virtual std::string getParserName()
+        {
+            return "AbstractParser";
+        }
+
+        virtual void errorMessage()
+        {
+            printf(
+                "Error parsing %s at column %d, row %d",
+                getParserName().c_str(),
+                tokenizer->getColumn(),
+                tokenizer->getRow()
+            );
+        }
     };
 }
 
