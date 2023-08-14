@@ -1,15 +1,15 @@
 #ifndef ENGINE_SCRIPT_PARSER_BASIC_NAME_H
 #define ENGINE_SCRIPT_PARSER_BASIC_NAME_H
 
-#include "AbstractParser.h"
+#include "../AtomicParser.h"
 
 namespace engine::script::parser
 {
-    struct BasicName : AbstractParser
+    struct BasicName : AtomicParser
     {
         std::string name;
 
-        BasicName(Tokenizer *tokenizer) : AbstractParser(tokenizer) {}
+        BasicName(Tokenizer *tokenizer) : AtomicParser(tokenizer) {}
 
         bool parse()
         {

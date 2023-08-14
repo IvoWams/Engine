@@ -10,9 +10,9 @@
 
 namespace engine::script::parser
 {
-    struct FunctionDeclaration : AbstractParser
+    struct FunctionDeclaration : AtomicParser
     {
-        FunctionDeclaration(Tokenizer *tokenizer) : AbstractParser(tokenizer) {}
+        FunctionDeclaration(Tokenizer *tokenizer) : AtomicParser(tokenizer) {}
 
         ReturnType returnType { tokenizer };
         FunctionName functionName { tokenizer };

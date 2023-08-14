@@ -3,7 +3,8 @@
 
 #include <string>
 #include <algorithm>
-#include "Exception/UnexpectedEndOfFile.h"
+#include <vector>
+#include "exception/SyntaxError.h"
 
 using namespace engine::script::parser::exception;
 
@@ -26,12 +27,24 @@ namespace engine::script::parser
 
         std::string read(int bytes)
         {
-            return tokens.substr(0, bytes);
+            if (left() >= bytes) {
+                return tokens.substr(0, bytes);
+            }
+
+            throw SyntaxError("Not enough tokens left");
         };
+
+        std::string readUntil(std::string haystack)
+        {
+            trim();
+            int eow = tokens.find_first_of(haystack);
+            std::string out = read(eow);
+            move(eow);
+        }
 
         std::string readWord()
         {
-            int eow = tokens.find_first_of(" \t\n");
+            int eow = tokens.find_first_of(",; \t\n");
             if (eow == std::string::npos) {
                 return tokens;
             }
@@ -66,7 +79,7 @@ namespace engine::script::parser
         void move(int bytes)
         {
             if (tokens.length() < bytes) {
-                throw UnexpectedEndOfFile(this);
+                return;
             }
             tokens = tokens.substr(bytes);
         };
@@ -74,7 +87,7 @@ namespace engine::script::parser
         void move(std::string bytes)
         {
             if (tokens.length() < bytes.length()) {
-                throw UnexpectedEndOfFile(this);
+                return;
             }
             tokens = tokens.substr(bytes.length());
         }
@@ -107,13 +120,7 @@ namespace engine::script::parser
         {
             auto seen = read(std::min({value.length(), tokens.length()}));
             if (seen != value) {
-                printf(
-                    "Syntax error at %d:%d\nExpected %s but got %s",
-                    getColumn(),
-                    getRow(),
-                    value,
-                    seen
-                );
+                throw SyntaxError("Expected a `" + value + "` but I got `" + seen +"`");
             }
         }
 
@@ -126,6 +133,7 @@ namespace engine::script::parser
         {
             return 0;
         }
+
     };
 }
 
