@@ -7,11 +7,11 @@
 namespace engine::script::parser
 {
     template<class T>
-    struct Repeatable : AbstractParser
+    struct Repeatable : AtomicParser
     {
         std::vector<T*> list;
 
-        Repeatable(Tokenizer *tokenizer) : AbstractParser(tokenizer) {
+        Repeatable(Tokenizer *tokenizer) : AtomicParser(tokenizer) {
             // static_assert(std::is_base_class_of<AbstractParser, T>::value, "Repeatable parser needs to be of type AbstractParser");
         }
 
@@ -19,7 +19,7 @@ namespace engine::script::parser
         {
             while(true) {
 
-                AbstractParser *item = new T(tokenizer);
+                AtomicParser *item = new T(tokenizer);
                 if (item->parse()) {
                     list.push_back(item)
                 } else {

@@ -8,9 +8,9 @@
 
 namespace engine::script::parser
 {
-    struct ParameterDeclaration : AbstractParser
+    struct ParameterDeclaration : AtomicParser
     {
-        ParameterDeclaration(Tokenizer *tokenizer) : AbstractParser(tokenizer) {}
+        ParameterDeclaration(Tokenizer *tokenizer) : AtomicParser(tokenizer) {}
 
         ParameterType parameterType { tokenizer };
         ParameterName parameterName { tokenizer };

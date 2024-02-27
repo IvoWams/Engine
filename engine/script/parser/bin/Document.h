@@ -8,12 +8,12 @@
 
 namespace engine::script::parser
 {
-    struct Document : AbstractParser
+    struct Document : AtomicParser
     {
         // std::vector<Header*> headers;
         Repeatable<Declaration> *declarations;
 
-        Document(Tokenizer *tokenizer) : AbstractParser(tokenizer) {};
+        Document(Tokenizer *tokenizer) : AtomicParser(tokenizer) {};
 
         bool parse()
         {

@@ -8,7 +8,6 @@
 #include "../../engine/script/parser/Tokenizer.h"
 
 using namespace engine::script::parser;
-using namespace engine::script::parser::exception;
 
 int main()
 {

@@ -5,9 +5,9 @@
 
 namespace engine::script::parser
 {
-    struct ParameterDefaultValue : AbstractParser
+    struct ParameterDefaultValue : AtomicParser
     {
-        ParameterDefaultValue(Tokenizer *tokenizer) : AbstractParser(tokenizer) {}
+        ParameterDefaultValue(Tokenizer *tokenizer) : AtomicParser(tokenizer) {}
 
         // TODO
         bool parse()

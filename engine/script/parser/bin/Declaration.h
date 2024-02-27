@@ -7,9 +7,9 @@
 
 namespace engine::script::parser
 {
-    struct Declaration : AbstractParser
+    struct Declaration : AtomicParser
     {
-        Declaration(Tokenizer *tokenizer) : AbstractParser(tokenizer) {}
+        Declaration(Tokenizer *tokenizer) : AtomicParser(tokenizer) {}
 
         bool parse()
         {

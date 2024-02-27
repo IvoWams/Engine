@@ -1,3 +1,16 @@
+# Parser -> Tokenizer
+
+
+Basic parsing class :
+
+- Holds a pointer to all the yet to be parsed data
+- parsing
+	- Reads as much as needed, when finished cuts as much as processed
+- contains both the way to create the data as well as holds it ? Seperation of concerns ...
+
+
+
+
 # Basic structure
 
 This defines the structure of a file:
@@ -138,11 +151,6 @@ String someKindOfFunction(int number1, int number2)
 
 <expression> ::= "new" <class-declaration>
 <expression> ::= <scalar>
-<expression> ::= <variable-name>
-
-
-
-<expression> ::= <variable-name>
 <expression> ::= <invoke-function>
 <expression> ::= <operator> <variable-name>
 <expression> ::= <variable-name> <operator> <variable-name>

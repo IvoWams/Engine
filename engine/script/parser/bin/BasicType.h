@@ -5,11 +5,11 @@
 
 namespace engine::script::parser
 {
-    struct BasicType : AbstractParser
+    struct BasicType : AtomicParser
     {
         std::string type;
 
-        BasicType(Tokenizer *tokenizer) : AbstractParser(tokenizer) {}
+        BasicType(Tokenizer *tokenizer) : AtomicParser(tokenizer) {}
 
         bool parse()
         {
