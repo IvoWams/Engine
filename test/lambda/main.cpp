@@ -12,6 +12,7 @@ int main()
         std::for_each(v.begin(), v.end(), f);
     };
 
+    printf("Doing work\n");
     foreach(v, increase);
     foreach(v, output);
 

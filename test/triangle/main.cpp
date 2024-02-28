@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../../math/Vector.h"
-#include "../../math/Triangle.h"
+#include "engine/math/Vector.h"
+#include "engine/math/Triangle.h"
 
 using namespace engine::math;
 

@@ -5,3 +5,4 @@ main
 *.a
 *.o
 *.
+build/

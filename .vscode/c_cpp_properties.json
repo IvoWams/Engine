@@ -4,7 +4,7 @@
             "name": "default",
             "cppStandard": "c++20",
             "intelliSenseMode": "linux-gcc-x64",
-            "includePath": ["${workspaceFolder}"]
+            "includePath": ["${workspaceFolder}/src"]
         }
     ],
     "version": 4
