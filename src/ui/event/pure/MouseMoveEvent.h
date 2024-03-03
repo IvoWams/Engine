@@ -9,16 +9,10 @@ using ui::event::trait::Positional;
 namespace ui::event::pure
 {
     class MouseMoveEvent :
-        UIEvent,
-        Positional
+        UIEvent
     {
         public:
-            MouseMoveEvent(
-                int x,
-                int y
-            ) :
-                Positional(x, y)
-            {}
+            MouseMoveEvent() {}
     };
 }
 

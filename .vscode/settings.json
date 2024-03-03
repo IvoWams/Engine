@@ -65,5 +65,5 @@
         "variant": "cpp"
     },
     "C_Cpp.default.cppStandard": "c++23",
-    "C_Cpp.default.compilerPath": "/usr/bin/gcc"
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc-10"
 }

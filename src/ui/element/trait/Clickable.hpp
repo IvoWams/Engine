@@ -10,7 +10,7 @@ using namespace ::event;
 using namespace ui::event::pure;
 using namespace ui::event::derived;
 
-namespace ui::element
+namespace ui::element::trait
 {
     class Clickable :
         public Listener<MouseClickEvent<MouseClickDirection::PRESS>>,

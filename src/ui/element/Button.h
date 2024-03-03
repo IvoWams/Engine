@@ -2,11 +2,12 @@
 #define ENGINE_UI_BUTTON_H
 
 #include "Element.h"
-#include "Clickable.hpp"
-#include "Focusable.h"
+#include "trait/Clickable.hpp"
+#include "trait/Focusable.h"
 
 using namespace ui::event;
 using namespace ui::element;
+using namespace ui::element::trait;
 
 namespace ui::element
 {

@@ -1,7 +1,6 @@
 add_library(
     ui_event_trait
     Positional.hpp
-    Positional.cpp
     TargetsElement.hpp
     TargetsElement.cpp
 )

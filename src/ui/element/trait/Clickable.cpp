@@ -1,6 +1,6 @@
 #include "Clickable.hpp"
 
-namespace ui::element
+namespace ui::element::trait
 {
     void Clickable::onEvent(MouseClickEvent<MouseClickDirection::PRESS>* event)
     {
