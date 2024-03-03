@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.php": "php",
         "stdexcept": "cpp",
         "typeinfo": "cpp",
         "deque": "cpp",
@@ -50,6 +51,7 @@
         "ostream": "cpp",
         "sstream": "cpp",
         "streambuf": "cpp",
+        "ranges": "cpp",
         "any": "cpp",
         "bitset": "cpp",
         "complex": "cpp",

@@ -33,7 +33,7 @@ int main()
             Tokenizer* tokenizer = new Tokenizer(i);
             Bool* word = new Bool(tokenizer);
             Token* token = word->parse();
-            Testbench::assertTrue(false, "Excepted ParseException was not throws");
+            Testbench::assertTrue(false, "Expected ParseException was not thrown");
         } catch (ParseException &exception) {
             Testbench::assertTrue(true, exception.message);
         }
