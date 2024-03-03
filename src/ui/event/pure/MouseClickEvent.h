@@ -3,9 +3,6 @@
 
 #include "ui/element/Element.h"
 #include "ui/event/UIEvent.hpp"
-#include "ui/event/trait/Positional.hpp"
-
-using ui::event::trait::Positional;
 
 namespace ui::event::pure
 {
@@ -17,21 +14,13 @@ namespace ui::event::pure
 
     template <MouseClickDirection T>
     class MouseClickEvent :
-        public UIEvent,
-        public Positional
+        public UIEvent
     {
         private:
             int button;
 
         public:
-            MouseClickEvent(
-                int x, 
-                int y, 
-                int _button
-            ) :
-                Positional(x, y),
-                button(_button)
-            {};
+            MouseClickEvent(int _button) : button(_button) { };
 
             int getButton()
             {

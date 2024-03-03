@@ -11,8 +11,8 @@
 #include "ui/event/pure/MouseClickEvent.h"
 #include "ui/event/pure/MouseMoveEvent.h"
 
+using namespace ::event;
 using namespace ui::element;
-using namespace event;
 using namespace ui::event::pure;
 
 namespace ui
@@ -22,6 +22,8 @@ namespace ui
     // {
 
     // };
+
+    // Main ui handler should only listen to the main OS event triggers, process them, and trigger events in active elements
 
 
     class UIEventHandler :
@@ -44,6 +46,11 @@ namespace ui
             void onEvent(MouseClickEvent<MouseClickDirection::PRESS>*);
             void onEvent(MouseClickEvent<MouseClickDirection::RELEASE>*);
             void onEvent(MouseMoveEvent*);
+
+            // void onEvent(GamePadButtonEvent<GamePadButtonDirection::PRESS_BUTTON>*)
+            // void onEvent(GamePadButtonEvent<GamePadInputType::RELEASE_BUTTON>*)
+            // void onEvent(GamePadDigitalEvent*)
+            // void onEvent(GamePadAnalogEvent*)
     };
 }
 

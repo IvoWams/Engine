@@ -15,7 +15,7 @@
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
                 "-I",
-                "${workspaceFolder}"
+                "${workspaceFolder}/src"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -28,6 +28,17 @@
                 "isDefault": true
             },
             "detail": "compiler: /usr/bin/g++"
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: build",
+            "command": "build",
+            "targets": [
+                "engine"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "CMake template build task"
         }
     ]
 }

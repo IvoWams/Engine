@@ -19,9 +19,15 @@ namespace ui::element
             std::vector<Element*> children;
 
         public:
+            Element(string _name) : name(_name) {}
+            Element() : name("unknown") {}
+
             void addChild(Element*);
             std::vector<Element*>* getChildren();
             Element* query(std::string);
+
+            int getId();
+            string getName();
     };
 }
 

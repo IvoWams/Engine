@@ -23,9 +23,9 @@ namespace ui::event::derived
     {
         public:
             FocusEvent(
-                Event* parent,
+                UIEvent* parent,
                 Element* target
-            ) : Event(parent),
+            ) : UIEvent(parent),
                 TargetsElement(target)
             {}
     };

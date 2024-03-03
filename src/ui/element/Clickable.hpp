@@ -6,7 +6,7 @@
 #include "ui/event/pure/MouseClickEvent.h"
 #include "ui/event/derived/ClickEvent.hpp"
 
-using namespace event;
+using namespace ::event;
 using namespace ui::event::pure;
 using namespace ui::event::derived;
 
@@ -22,6 +22,9 @@ namespace ui::element
 
         public:
             Clickable() {}
+
+            using Dispatcher<ClickEvent>::addListener; 
+            using Dispatcher<ClickEvent>::dispatch;
 
             void onEvent(MouseClickEvent<MouseClickDirection::PRESS>*);
             void onEvent(MouseClickEvent<MouseClickDirection::RELEASE>*);

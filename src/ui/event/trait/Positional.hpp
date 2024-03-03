@@ -3,16 +3,9 @@
 
 namespace ui::event::trait
 {
-    class Positional
+    struct Positional
     {
-        private:
-            int x, y;
-
-        public:
-            Positional(int _x, int _y) : x(_x), y(_y) {}
-
-            int getX();
-            int getY();
+        int x, y;
     };
 }
 

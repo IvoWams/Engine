@@ -25,4 +25,14 @@ namespace ui::element
     {
         children.push_back(element);
     }
+
+    string Element::getName()
+    {
+        return name;
+    }
+
+    int Element::getId()
+    {
+        return id;
+    }
 }
