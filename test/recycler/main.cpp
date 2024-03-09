@@ -1,13 +1,13 @@
 
 #include <iostream>
-#include "memory/slot_stack/StackedTypeSlottedMemory.hpp"
-#include "memory/slot_stack/SlotStackMemory.hpp"
+#include "memory/recycler/Recycler.hpp"
+#include "memory/recycler/RecyclerManager.hpp"
 
-using memory::slot_stack::Slot;
-using memory::slot_stack::StackedTypeSlottedMemory;
-using memory::slot_stack::SlotStackMemory;
+using memory::recycler::Slot;
+using memory::recycler::RecyclerManager;
+using memory::recycler::Recycler;
 
-class Obj : public SlotStackMemory<Obj>
+class Obj : public Recycler<Obj>
 {
     private:
 

@@ -1,7 +1,10 @@
-#ifndef ENGINE_UI_EVENT_KEYEVENT_H
-#define ENGINE_UI_EVENT_KEYEVENT_H
+#ifndef UI_EVENT_KEYEVENT_HPP
+#define UI_EVENT_KEYEVENT_HPP
 
 #include "ui/event/UIEvent.hpp"
+#include "memory/recycler/Recycler.hpp"
+
+using memory::recycler::Recycler;
 
 namespace ui::event::pure
 {
@@ -13,7 +16,8 @@ namespace ui::event::pure
 
     template<KeyDirection T>
     class KeyEvent :
-        public UIEvent
+        public UIEvent,
+        public Recycler<KeyEvent<T>>
     {
         private:
             int keyCode;

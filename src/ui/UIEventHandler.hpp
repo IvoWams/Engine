@@ -1,15 +1,15 @@
 // We need something that can connect 'pure' events, determine what we are currently interacting with, and dispatch derived events
 // The main handler only listens to the most basic inputs an OS can provide: keyboard keys, mouse events and gamepad/controller events
 
-#ifndef ENGINE_UI_UIEVENTHANDLER_H
-#define ENGINE_UI_UIEVENTHANDLER_H
+#ifndef UI_UIEVENTHANDLER_HPP
+#define UI_UIEVENTHANDLER_HPP
 
 #include "ui/element/Element.h"
-#include "event/Propagator.h"
-#include "event/Listener.h"
-#include "ui/event/pure/KeyEvent.h"
-#include "ui/event/pure/MouseClickEvent.h"
-#include "ui/event/pure/MouseMoveEvent.h"
+#include "event/Propagator.hpp"
+#include "event/Listener.hpp"
+#include "ui/event/pure/KeyEvent.hpp"
+#include "ui/event/pure/MouseClickEvent.hpp"
+#include "ui/event/pure/MouseMoveEvent.hpp"
 
 using namespace ::event;
 using namespace ui::element;

@@ -1,9 +1,9 @@
-#ifndef ENGINE_UI_ELEMENT_CLICKABLE_H
-#define ENGINE_UI_ELEMENT_CLICKABLE_H
+#ifndef UI_ELEMENT_CLICKABLE_HPP
+#define UI_ELEMENT_CLICKABLE_HPP
 
-#include "event/Listener.h"
-#include "event/Dispatcher.h"
-#include "ui/event/pure/MouseClickEvent.h"
+#include "event/Listener.hpp"
+#include "event/Dispatcher.hpp"
+#include "ui/event/pure/MouseClickEvent.hpp"
 #include "ui/event/derived/ClickEvent.hpp"
 
 using namespace ::event;
@@ -21,7 +21,8 @@ namespace ui::element::trait
             bool clicking = false;
 
         public:
-            Clickable() {}
+            Clickable() {};
+            virtual ~Clickable() {};
 
             using Dispatcher<ClickEvent>::addListener; 
             using Dispatcher<ClickEvent>::dispatch;

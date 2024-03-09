@@ -1,10 +1,12 @@
-#ifndef ENGINE_UI_EVENT_MOUSEOVER_H
-#define ENGINE_UI_EVENT_MOUSEOVER_H
+#ifndef UI_EVENT_MOUSEOVER_HPP
+#define UI_EVENT_MOUSEOVER_HPP
 
 #include "ui/event/UIEvent.hpp"
 #include "ui/event/trait/TargetsElement.hpp"
+#include "memory/recycler/Recycler.hpp"
 
 using ui::event::trait::TargetsElement;
+using memory::recycler::Recycler;
 
 namespace ui::event::derived
 {
@@ -17,7 +19,8 @@ namespace ui::event::derived
     template<MouseEnters T>
     class MouseOverEvent :
         public UIEvent,
-        public TargetsElement
+        public TargetsElement,
+        public Recycler<MouseOverEvent<T>>
     {
         public:
             MouseOverEvent(
@@ -27,7 +30,10 @@ namespace ui::event::derived
                 Event(parent),
                 TargetsElement(target)
             {}
+
+            ~MouseOverEvent(){};
     };
 }
+
 
 #endif

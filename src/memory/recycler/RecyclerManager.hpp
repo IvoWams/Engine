@@ -1,5 +1,5 @@
-#ifndef MEMORY_STACKED_TYPE_SLOTTED_MEMORY_H
-#define MEMORY_STACKED_TYPE_SLOTTED_MEMORY_H
+#ifndef MEMORY_RECYCLER_RECYCLERMANAGER_HPP
+#define MEMORY_RECYCLER_RECYCLERMANAGER_HPP
 
 #include <stdlib.h>
 #include <vector>
@@ -9,25 +9,25 @@
 using namespace std;
 using std::vector;
 
-namespace memory::slot_stack
+namespace memory::recycler
 {
     template <class T>
-    class StackedTypeSlottedMemory
+    class RecyclerManager
     {
         private:
             vector<Slot<T>*> slots;
-            static StackedTypeSlottedMemory<T>& instance;
+            static RecyclerManager<T>& instance;
 
-            StackedTypeSlottedMemory(){}
+            RecyclerManager(){}
 
         public:
 
-            StackedTypeSlottedMemory(StackedTypeSlottedMemory const&) = delete;
-            void operator=(StackedTypeSlottedMemory<T> const&) = delete;
+            RecyclerManager(RecyclerManager const&) = delete;
+            void operator=(RecyclerManager<T> const&) = delete;
 
-            static StackedTypeSlottedMemory<T>& getInstance()
+            static RecyclerManager<T>& getInstance()
             {
-                static StackedTypeSlottedMemory<T> instance;
+                static RecyclerManager<T> instance;
                 return instance;
             }
 

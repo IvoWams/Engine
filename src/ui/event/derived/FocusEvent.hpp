@@ -1,9 +1,10 @@
-#ifndef ENGINE_UI_EVENT_FOCUSEVENT_H
-#define ENGINE_UI_EVENT_FOCUSEVENT_H
+#ifndef UI_EVENT_FOCUSEVENT_HPP
+#define UI_EVENT_FOCUSEVENT_HPP
 
 #include "ui/event/UIEvent.hpp"
 #include "ui/element/Element.h"
 #include "ui/event/trait/TargetsElement.hpp"
+#include "memory/recycler/Recycler.hpp"
 
 using ui::element::Element;
 using ui::event::trait::TargetsElement;
@@ -17,9 +18,10 @@ namespace ui::event::derived
     };
 
     template<FocusBlur T>
-    class FocusEvent :
+    class FocusEvent final :
         public UIEvent,
-        public TargetsElement
+        public TargetsElement,
+        public Recycler<FocusEvent<T>>
     {
         public:
             FocusEvent(

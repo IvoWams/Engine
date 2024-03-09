@@ -1,5 +1,5 @@
 add_library(
     math_shapes
-    Shapes.h
+    Shapes.hpp
+    Intersects.hpp
 )
-git

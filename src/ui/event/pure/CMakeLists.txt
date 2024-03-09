@@ -1,9 +1,9 @@
 add_library(
     ui_event_pure
-    KeyEvent.h
+    KeyEvent.hpp
     KeyEvent.cpp
-    MouseClickEvent.h
-    MouseMoveEvent.h
+    MouseClickEvent.hpp
+    MouseMoveEvent.hpp
 )
 
 target_link_libraries(ui_event_pure ui_event)

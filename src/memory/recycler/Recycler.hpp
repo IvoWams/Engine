@@ -1,13 +1,13 @@
-#ifndef MEMORY_SLOTSTACKMEMORY_HPP
-#define MEMORY_SLOTSTACKMEMORY_HPP
+#ifndef MEMORY_RECYCLER_RECYCLER_HPP
+#define MEMORY_RECYCLER_RECYCLER_HPP
 
-#include "StackedTypeSlottedMemory.hpp"
+#include "RecyclerManager.hpp"
 #include "Slot.hpp"
 
-namespace memory::slot_stack
+namespace memory::recycler
 {
     template <class T>
-    class SlotStackMemory
+    class Recycler
     {
         private:
             Slot<T>* slot;
@@ -20,7 +20,7 @@ namespace memory::slot_stack
 
             void* operator new(size_t size)
             {
-                auto slot = StackedTypeSlottedMemory<T>::getInstance().createSlot();
+                auto slot = RecyclerManager<T>::getInstance().createSlot();
                 slot->active = true;
                 slot->memory->slot = slot;
                 return slot->memory;

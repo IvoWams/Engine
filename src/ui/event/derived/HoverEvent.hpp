@@ -1,10 +1,12 @@
-#ifndef ENGINE_UI_EVENT_HOVER_H
-#define ENGINE_UI_EVENT_HOVER_H
+#ifndef UI_EVENT_HOVER_HPP
+#define UI_EVENT_HOVER_HPP
 
 #include "ui/event/UIEvent.hpp"
 #include "ui/event/trait/TargetsElement.hpp"
+#include "memory/recycler/Recycler.hpp"
 
 using ui::event::trait::TargetsElement;
+using memory::recycler::Recycler;
 
 namespace ui::event::derived
 {
@@ -14,9 +16,10 @@ namespace ui::event::derived
     };
 
     template<HoverDirection T>
-    class HoverEvent :
+    class HoverEvent final :
         public UIEvent,
-        public TargetsElement
+        public TargetsElement,
+        public Recycler<HoverEvent<T>>
     {
         public:
             HoverEvent(
@@ -26,6 +29,8 @@ namespace ui::event::derived
                 UIEvent(parent),
                 TargetsElement(target)
             {}
+
+            ~HoverEvent(){};
     };
 }
 

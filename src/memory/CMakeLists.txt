@@ -1,2 +1,2 @@
-add_subdirectory(slot_stack)
+add_subdirectory(recycler)
 

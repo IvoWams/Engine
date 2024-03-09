@@ -2,10 +2,10 @@ add_library(
     ui_event_derived
     ClickEvent.hpp
     ClickEvent.cpp
-    FocusEvent.h
-    HoverEvent.h
-    InputEvent.h
-    MouseOverEvent.h
+    FocusEvent.hpp
+    HoverEvent.hpp
+    InputEvent.hpp
+    MouseOverEvent.hpp
 )
 
-target_link_libraries(ui_event_derived ui_event)
+target_link_libraries(ui_event_derived ui_event memory_recycler)

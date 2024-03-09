@@ -1,7 +1,7 @@
-#ifndef ENGINE_EVENT_DISPATCHER_H
-#define ENGINE_EVENT_DISPATCHER_H
+#ifndef EVENT_DISPATCHER_HPP
+#define EVENT_DISPATCHER_HPP
 
-#include "Listener.h"
+#include "Listener.hpp"
 #include <vector>
 #include <cstdio>
 
@@ -14,6 +14,10 @@ namespace event
     {
         private:
             vector<Listener<T>*> listeners;
+
+        protected:
+            Dispatcher(){};
+            virtual ~Dispatcher(){};
 
         public:
             Dispatcher<T>& operator()(const T &event)

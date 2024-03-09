@@ -1,35 +1,44 @@
-#include "engine/Engine.h"
-#include "engine/GameOperatorInterface.h"
+#include "event/Listener.hpp"
+#include "engine/event/TickEvent.hpp"
+#include "engine/event/EngineTimingEvent.hpp"
+#include "engine/Engine.hpp"
 
-using namespace engine;
+using engine::Engine;
+using namespace ::event;
+using namespace ::engine::event;
 
-struct TestGameOperator : public GameOperatorInterface
+class EngineOperator :
+    public Listener<TickEvent>,
+    public Listener<EngineTimingEvent<EngineTimingEventTypeEnum::INITIALISATION>>,
+    public Listener<EngineTimingEvent<EngineTimingEventTypeEnum::START>>,
+    public Listener<EngineTimingEvent<EngineTimingEventTypeEnum::ITERATION>>,
+    public Listener<EngineTimingEvent<EngineTimingEventTypeEnum::STOP>>,
+    public Listener<EngineTimingEvent<EngineTimingEventTypeEnum::CLEANUP>>
 {
-    void advance(long nanoSeconds)
-    {
-        // printf("We are advancing %d nsec!\n", nanoSeconds);
+    public:
+        EngineOperator(){}
 
-        double frequency = 1 / (0.000000001 * nanoSeconds);
-
-        // printf("H=%fHz\n", frequency);
-    }
+        void onEvent(TickEvent* tickEvent){ printf("tickEvent(%lld)\n", tickEvent->duration); };
+        void onEvent(EngineTimingEvent<EngineTimingEventTypeEnum::INITIALISATION>*){ printf("Main::Initialisation()\n"); };
+        void onEvent(EngineTimingEvent<EngineTimingEventTypeEnum::START>*){ printf("Main::Start()\n"); };
+        void onEvent(EngineTimingEvent<EngineTimingEventTypeEnum::ITERATION>*){ printf("Main::Iteration()\n"); };
+        void onEvent(EngineTimingEvent<EngineTimingEventTypeEnum::STOP>*){ printf("Main::Stop()\n"); };
+        void onEvent(EngineTimingEvent<EngineTimingEventTypeEnum::CLEANUP>*){ printf("Main::Cleanup()\n"); };
 };
-
-
 
 int main()
 {
-    Engine *engine = Engine::getInstance();
-    auto o = new TestGameOperator();
-    engine->setGameOperator(o);
+    auto o = new EngineOperator();
+    auto engine = Engine::getInstance();
 
-    printf("Go\n");
+    ((Dispatcher<TickEvent>*)engine)->addListener(o);
+    ((Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::INITIALISATION>>*)engine)->addListener(o);
+    ((Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::START>>*)engine)->addListener(o);
+    ((Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::ITERATION>>*)engine)->addListener(o);
+    ((Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::STOP>>*)engine)->addListener(o);
+    ((Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::CLEANUP>>*)engine)->addListener(o);
 
-    for (int i = 0; i < 1000000; i++) {
-        o->update();
-        o->update();
-        o->update();
-    }
-
-    printf("Finish\n");
+    engine->initialise();
+    engine->run();
+    engine->cleanup();
 }

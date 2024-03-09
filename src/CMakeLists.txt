@@ -12,6 +12,8 @@
 add_subdirectory(event)
 add_subdirectory(ui)
 add_subdirectory(memory)
+add_subdirectory(engine)
+
 
 
 

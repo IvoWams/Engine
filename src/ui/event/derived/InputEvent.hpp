@@ -1,16 +1,19 @@
-#ifndef ENGINE_UI_EVENT_INPUT_H
-#define ENGINE_UI_EVENT_INPUT_H
+#ifndef UI_EVENT_INPUT_HPP
+#define UI_EVENT_INPUT_HPP
 
 #include "ui/event/UIEvent.hpp"
 #include "ui/event/trait/TargetsElement.hpp"
+#include "memory/recycler/Recycler.hpp"
 
 using ui::event::trait::TargetsElement;
+using memory::recycler::Recycler;
 
 namespace ui::event::derived
 {
-    class InputEvent :
+    class InputEvent final :
         public UIEvent,
-        public TargetsElement
+        public TargetsElement,
+        public Recycler<InputEvent>
     {
         private:
             int keyCode;
@@ -24,6 +27,8 @@ namespace ui::event::derived
                 TargetsElement(element),
                 keyCode(_keyCode)
             {}
+
+            ~InputEvent(){};
 
             int getKeyCode()
             {

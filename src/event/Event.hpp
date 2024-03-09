@@ -10,10 +10,13 @@ namespace event
         private:
             Event* parent = nullptr;
 
-        public:
-            Event() {}
-            Event(Event* _parent) : parent(_parent) {}
+        protected:
+            Event() {};
+            Event(Event* _parent) : parent(_parent) {};
 
+        public:
+            virtual ~Event(){};
+            
             Event* getParent();
     };
 }

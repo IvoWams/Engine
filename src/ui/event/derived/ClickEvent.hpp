@@ -3,15 +3,18 @@
 
 #include "ui/event/UIEvent.hpp"
 #include "ui/event/trait/TargetsElement.hpp"
+#include "memory/recycler/Recycler.hpp"
 
 using ui::event::UIEvent;
 using ui::event::trait::TargetsElement;
+using memory::recycler::Recycler;
 
 namespace ui::event::derived
 {
-    class ClickEvent : 
+    class ClickEvent final : 
         public UIEvent,
-        public TargetsElement
+        public TargetsElement,
+        public Recycler<ClickEvent>
     {
         public:
             ClickEvent(
@@ -20,6 +23,8 @@ namespace ui::event::derived
             ) : UIEvent(parent),
                 TargetsElement(target)
             {}
+
+            ~ClickEvent(){};
     };
 }
 

@@ -1,8 +1,8 @@
-#ifndef ENGINE_EVENT_PROPAGATE_H
-#define ENGINE_EVENT_PROPAGATE_H
+#ifndef EVENT_PROPAGATE_HPP
+#define EVENT_PROPAGATE_HPP
 
-#include "Dispatcher.h"
-#include "Listener.h"
+#include "Dispatcher.hpp"
+#include "Listener.hpp"
 
 namespace event
 {

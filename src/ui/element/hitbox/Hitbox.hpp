@@ -2,26 +2,32 @@
 #define UI_ELEMENT_HITBOX_HPP
 
 #include "ui/event/trait/Positional.hpp"
+#include "math/shapes/Shapes.h"
 
 using ui::event::trait::Positional;
+using math::shapes::Square;
 
 namespace ui::element
 {
     class IsHit
     {
+        protected:
+            IsHit(){}
+
         public:
+            virtual ~IsHit();
             virtual bool isHit(Positional* position) = 0;
     };
 
-    struct Square { int x, y, w, h; };
-
+    template <typename T>
     class HitBox :
         public IsHit
     {
         private:
-            const Square& square;
+            const Square<T>& square;
+
         public:
-            HitBox(const Square& _square) : square(_square) {}
+            HitBox(const Square<T>& _square) : square(_square) {}
 
             bool isHit(Positional* position)
             {

@@ -1,10 +1,8 @@
 add_library(
     event
-    Dispatcher.h
-    Event.h
+    Dispatcher.hpp
+    Event.hpp
     Event.cpp
-    EventStack.h
-    EventStack.cpp
-    Listener.h
-    Propagator.h
+    Listener.hpp
+    Propagator.hpp
 )

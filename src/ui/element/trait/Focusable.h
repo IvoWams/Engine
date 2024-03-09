@@ -1,8 +1,8 @@
-#ifndef ENGINE_UI_ELEMENT_FOCUSABLE_H
-#define ENGINE_UI_ELEMENT_FOCUSABLE_H
+#ifndef UI_ELEMENT_FOCUSABLE_HPP
+#define UI_ELEMENT_FOCUSABLE_HPP
 
-#include "event/Dispatcher.h"
-#include "ui/event/derived/FocusEvent.h"
+#include "event/Dispatcher.hpp"
+#include "ui/event/derived/FocusEvent.hpp"
 
 using ::event::Dispatcher;
 using namespace ui::event::derived;

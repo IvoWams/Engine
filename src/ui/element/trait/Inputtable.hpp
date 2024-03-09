@@ -1,11 +1,11 @@
 #ifndef ENGINE_UI_ELEMENT_INPUTTABLE_H
 #define ENGINE_UI_ELEMENT_INPUTTABLE_H
 
-#include "event/Listener.h"
-#include "event/Dispatcher.h"
+#include "event/Listener.hpp"
+#include "event/Dispatcher.hpp"
 
-#include "ui/event/pure/KeyEvent.h"
-#include "ui/event/derived/InputEvent.h"
+#include "ui/event/pure/KeyEvent.hpp"
+#include "ui/event/derived/InputEvent.hpp"
 
 using namespace event;
 using namespace ui::event::pure;

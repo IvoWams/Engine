@@ -5,8 +5,11 @@ namespace event {
 
     template <class T>
     class Listener {
-    public:
-        virtual void onEvent(T* event) = 0;
+        protected:
+            Listener(){};
+
+        public:
+            virtual void onEvent(T* event) = 0;
     };
 
 }

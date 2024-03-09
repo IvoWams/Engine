@@ -8,7 +8,7 @@
 using namespace std;
 using std::vector;
 
-namespace memory::slot_stack
+namespace memory::recycler
 {
     template<class T>
     class Slot
