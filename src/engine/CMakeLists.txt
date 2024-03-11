@@ -1,4 +1,5 @@
 add_subdirectory(event)
+add_subdirectory(trait)
 
 add_library(
     engine
@@ -11,4 +12,4 @@ add_library(
 
 set_target_properties(engine PROPERTIES LINKER_LANGUAGE CXX)
 
-target_link_libraries(engine engine_event)
+target_link_libraries(engine engine_event engine_trait)
