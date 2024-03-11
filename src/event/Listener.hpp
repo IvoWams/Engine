@@ -1,17 +1,18 @@
-#ifndef ENGINE_EVENT_LISTENER_H
-#define ENGINE_EVENT_LISTENER_H
+#ifndef EVENT_LISTENER_H
+#define EVENT_LISTENER_H
 
-namespace event {
-
+namespace event
+{
     template <class T>
-    class Listener {
+    class Listener
+    {
         protected:
             Listener(){};
+            virtual ~Listener();
 
         public:
             virtual void onEvent(T* event) = 0;
     };
-
 }
 
 #endif
