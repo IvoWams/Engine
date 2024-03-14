@@ -7,7 +7,8 @@ namespace engine::os
 {
     class WindowHandle
     {
-        int reference;
+        public:
+            int reference;
     };
 }
 

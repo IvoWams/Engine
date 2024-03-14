@@ -40,7 +40,7 @@ namespace engine
             long long maxIterations = 10;
             long long iterations = 0;
 
-            int tickThreshold = 10;
+            int tickThreshold = 100;
             int tickThresholdCount = tickThreshold;
 
             static Engine* getInstance()
@@ -79,9 +79,9 @@ namespace engine
                         Dispatcher<TickEvent>::dispatch(tickEvent);
                     }
 
-                    if (iterations >= maxIterations) {
-                        running = false;
-                    }
+                    // if (iterations >= maxIterations) {
+                    //     running = false;
+                    // }
                 }
 
                 Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::STOP>>

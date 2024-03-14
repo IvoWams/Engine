@@ -18,11 +18,14 @@ namespace event
     class Dispatcher
     {
         private:
+        protected:
             static map<Dispatcher<T>*, vector<Listener<T>*>> listeners;
 
-        protected:
             Dispatcher(){};
-            virtual ~Dispatcher(){};
+
+            virtual ~Dispatcher(){
+                cleanup();
+            };
 
         public:
             Dispatcher<T>& operator()(const T &event)
@@ -50,6 +53,11 @@ namespace event
                 for (auto dispatcher : listeners) {
                     dispatcher.first->delListener(listener);
                 }
+            }
+
+            void cleanup()
+            {
+                listeners.erase(this);
             }
     };
 

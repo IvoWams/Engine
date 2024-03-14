@@ -17,9 +17,9 @@ namespace engine::event
         private:
 
         public:
-            TickEvent(long long _duration) : duration(_duration) {};
+            TickEvent(uint64_t _duration) : duration(_duration) {};
 
-            long long duration;
+            uint64_t duration;
     };
 }
 

@@ -3,6 +3,8 @@ add_library(
     EngineEvent.hpp
     EngineTimingEvent.hpp
     TickEvent.hpp
+    Timer.hpp
+    TimerEvent.hpp
 )
 
 set_target_properties(engine_event PROPERTIES LINKER_LANGUAGE CXX)

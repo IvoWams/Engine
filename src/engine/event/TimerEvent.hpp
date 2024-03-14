@@ -6,6 +6,8 @@
 
 namespace engine::event
 {
+    class Timer;
+
     class TimerEvent final : public EngineEvent
     {
         public:

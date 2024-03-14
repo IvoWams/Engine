@@ -25,7 +25,7 @@ class EngineOperator :
     public:
         EngineOperator(){}
 
-        void onEvent(TickEvent* tickEvent){ printf("tickEvent(%lld)\n", tickEvent->duration); };
+        void onEvent(TickEvent* tickEvent){ printf("tickEvent(%ld)\n", tickEvent->duration); };
         void onEvent(EngineTimingEvent<INITIALISATION>*){ printf("Main::Initialisation()\n"); };
         void onEvent(EngineTimingEvent<START>*){ printf("Main::Start()\n"); };
         void onEvent(EngineTimingEvent<ITERATION>*){ printf("Main::Iteration()\n"); };

@@ -21,6 +21,11 @@ namespace engine::trait
 
             virtual ~Progressable(){};
 
+            void stopListening()
+            {
+                ((Dispatcher<TickEvent>*)Engine::getInstance())->delListener(this);
+            }
+
             void onEvent(TickEvent* event) = 0;
     };
 }

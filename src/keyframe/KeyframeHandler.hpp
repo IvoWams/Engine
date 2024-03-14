@@ -3,22 +3,20 @@
 
 #include "engine/trait/Progressable.hpp"
 #include "memory/recycler/Recycler.hpp"
+#include <map>
 
 using engine::trait::Progressable;
 using memory::recycler::Recycler;
 
 namespace keyframe
 {
-    // Progresses the keyframe in time. Should return true if complete
-    template <class T>
     class KeyframeAlgorithm
     {
         public:
-            bool iterate(Keyframe*, uint64_t time) = 0;
+            virtual bool iterate(Keyframe*, uint64_t time) = 0;
     };
 
-    template <class T>
-    class Linear : public KeyframeAlgorithm<T>
+    class Linear : public KeyframeAlgorithm
     {
         public:
             bool iterate(Keyframe* k, uint64_t time)
@@ -26,7 +24,7 @@ namespace keyframe
                 // guard
                 if (k->cursor + time > )
 
-                T delta = k->end - k->start;
+                KeyframeValue* delta = k->end - k->start;
                 uint64_t span = time / k->lifetime;
             }
     };
@@ -34,17 +32,31 @@ namespace keyframe
     class KeyframeValue
     {
         public:
-            virtual void operator+(const KeyframeValue&) = 0;
-            virtual void operator-(const KeyframeValue&) = 0;
-            virtual void operator/(const KeyframeValue&) = 0;
-            virtual void operator*(const KeyframeValue&) = 0;
-            virtual void operator=(const KeyframeValue&) = 0;
-    }
+            virtual KeyframeValue& operator+(const KeyframeValue&) = 0;
+            virtual KeyframeValue& operator-(const KeyframeValue&) = 0;
+            virtual KeyframeValue& operator/(const KeyframeValue&) = 0;
+            virtual KeyframeValue& operator*(const KeyframeValue&) = 0;
+            virtual KeyframeValue& operator=(const KeyframeValue&) = 0;
+    };
 
-    class Keyframe final : public Recycler<Keyframe<T>>
+    template <typename T>
+    // assert that T is scalar
+    class KeyframeScalarValue final : public KeyframeValue
     {
         public:
-            Keyframe(uint64_t _lifetime, T _end, KeyframeAlgorithm<T>* _algorithm)
+            T value;
+
+            KeyframeScalarValue operator+(const KeyframeScalarValue<T>& _value)
+            {
+                value += _value;
+                return this;
+            }
+    };
+
+    class Keyframe final : public Recycler<Keyframe>
+    {
+        public:
+            Keyframe(uint64_t _lifetime, KeyframeValue* _end, KeyframeAlgorithm* _algorithm)
                 : lifetime(_lifetime), end(_end), algorithm(_algorithm)
             {
                 KeyframeHandler<T>::keyframes[KeyframeHandler<T>::getInstance()].push_back(this);
@@ -65,9 +77,7 @@ namespace keyframe
         public Recycler<KeyframeHandler>
     {
         private:
-            static map<KeyframeHandler*, map<T start, Keyframe*>> keyframes;
-
-            T& subject;
+            static std::map<KeyframeHandler*, std::map<uint64_t, Keyframe*>> keyframes;
             
             // algorithm ? lineair, easing etc
 
@@ -75,6 +85,16 @@ namespace keyframe
             KeyframeHandler(T& _subject) : subject(_subject) {
 
             };
+
+            KeyframeValue* subject;
+
+
+            static KeyframeHandler* get(KeyframeValue* value)
+            {
+                for (auto keyframe : keyframes) {
+                    if (keyframe.first->subject)
+                }
+            }
 
             ~KeyframeHandler(){};
 

@@ -3,11 +3,14 @@
 
 #include "engine/trait/Progressable.hpp"
 #include "TimerEvent.hpp"
+#include <iostream>
 
 using engine::trait::Progressable;
 
 namespace engine::event
 {
+    class TimerEvent;
+
     class Timer :
         public Progressable,
         public Dispatcher<TimerEvent>
@@ -21,24 +24,34 @@ namespace engine::event
                 cooldown(_duration),
                 repeat(_repeat)
             {
-
-            };
+                printf("Start timer %ld\n", duration);
+            }
 
             uint64_t duration, cooldown;
             bool repeat;
 
             void onEvent(TickEvent* tick)
             {
-                cooldown -= tick->duration;                
-
-                if (cooldown <= 0) {
+                if (cooldown < tick->duration ) {
                     dispatch(&event);
+                    cooldown += duration;
                     if (repeat) {
-                        cooldown += duration;
+                        // cooldown += tick->duration;
                      } else {
-                        cleanup(this);
+                        // this is a dispatcher<timerevent>
+                        // and a listener<tickerevent>
+
+                        // both need to go                        
+                        printf("\nWE NEED TO GO\n");
+                        // std::erase(listeners[(Dispatcher<TimerEvent>*)this], (Listener<TimerEvent>*)this);                        
+
+                        stopListening();
+
+                        cleanup();
                      }
                 }
+
+                cooldown -= tick->duration;
             }
     };
 }
