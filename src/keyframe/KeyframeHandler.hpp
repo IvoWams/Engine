@@ -10,95 +10,113 @@ using memory::recycler::Recycler;
 
 namespace keyframe
 {
+    template <typename T>
     class KeyframeAlgorithm
     {
         public:
-            virtual bool iterate(Keyframe*, uint64_t time) = 0;
+            virtual void iterate(Keyframe<T>*, uint64_t time) = 0;
     };
 
-    class Linear : public KeyframeAlgorithm
+    enum KeyframeStatusEnum
     {
-        public:
-            bool iterate(Keyframe* k, uint64_t time)
-            {
-                // guard
-                if (k->cursor + time > )
-
-                KeyframeValue* delta = k->end - k->start;
-                uint64_t span = time / k->lifetime;
-            }
-    };
-
-    class KeyframeValue
-    {
-        public:
-            virtual KeyframeValue& operator+(const KeyframeValue&) = 0;
-            virtual KeyframeValue& operator-(const KeyframeValue&) = 0;
-            virtual KeyframeValue& operator/(const KeyframeValue&) = 0;
-            virtual KeyframeValue& operator*(const KeyframeValue&) = 0;
-            virtual KeyframeValue& operator=(const KeyframeValue&) = 0;
+        NOT_STARTED, IN_PROGRESS, FINISHED
     };
 
     template <typename T>
-    // assert that T is scalar
-    class KeyframeScalarValue final : public KeyframeValue
+    class Keyframe final : public Recycler<Keyframe<T>>
     {
         public:
-            T value;
+            Keyframe(
+                uint64_t startTime,
+                T& startValue,
 
-            KeyframeScalarValue operator+(const KeyframeScalarValue<T>& _value)
+                uint64_t endTime,
+                T& endValue,
+
+                KeyframeAlgorith<T>* _algorithm
+            ) :
+                startTime(_startTime),
+                startValue(Value_starValue),
+                endTime(_endTime),
+                endValue(_endValue),
+                algorithm(_algorithm)
             {
-                value += _value;
-                return this;
-            }
-    };
-
-    class Keyframe final : public Recycler<Keyframe>
-    {
-        public:
-            Keyframe(uint64_t _lifetime, KeyframeValue* _end, KeyframeAlgorithm* _algorithm)
-                : lifetime(_lifetime), end(_end), algorithm(_algorithm)
-            {
-                KeyframeHandler<T>::keyframes[KeyframeHandler<T>::getInstance()].push_back(this);
+                
             }
 
-            ~Keyframe(){};
+            ~Keyframe()
+            {};
 
-            KeyframeHandler<T>& handler;
-
-            uint64_t lifetime;
-            uint64_t cursor;
-            T start, end;
+            uint64_t startTime, endTime, cursor;
+            T& startValue, endValue, subject;
             KeyframeAlgorithm<T>* algorithm;
+            KeyframeStatusEnum status;
+    };    
+
+    template <typename T>
+    class Linear : public KeyframeAlgorithm
+    {
+        public:
+            void iterate(Keyframe<T>* keyframe, uint64_t time)
+            {
+                if (keyframe->status == KeyframeStatusEnum::FINISHED) {
+                    return;
+                }
+
+                if (keyframe->status == KeyframeStatusEnum::NOT_STARTED) {
+                    if (time < keyframe->startTime) {
+                        return;
+                    }
+
+                    keyframe->cursor = keyframe->startTime;
+                    keyframe->subject = keyframe->startValue;
+                    keyframe->status = KeyframeStatusEnum::IN_PROGRESS;
+                }
+
+                // IN_PROGRESS:
+                if (time >= keyframe->endTime) {
+                    keyframe->subject = keyframe->endValue;
+                    keyframe->status = KeyframeStatusEnum::FINISHED;
+                    return;
+                }
+
+                // Actual calculation here, rest could be DRY
+                auto delta = time - keyframe->cursor;
+                keyframe->subject += (keyframe->endValue - keyframe->subject) / delta;
+            }
     };
 
+    template <typename T>
     class KeyframeHandler final :
         public Progressable,
         public Recycler<KeyframeHandler>
     {
         private:
-            static std::map<KeyframeHandler*, std::map<uint64_t, Keyframe*>> keyframes;
-            
-            // algorithm ? lineair, easing etc
+            static std::map<T*, std::map<uint64_t, Keyframe<T>*>> keyframes;
+
+            uint64_t cursor;
 
         public:
-            KeyframeHandler(T& _subject) : subject(_subject) {
-
-            };
-
-            KeyframeValue* subject;
-
-
-            static KeyframeHandler* get(KeyframeValue* value)
+            static void add(
+                T& value, 
+                Keyframe<T>* keyframe
+            )
             {
-                for (auto keyframe : keyframes) {
-                    if (keyframe.first->subject)
-                }
+                keyframes[value].insert(std::pair(keyframe->start, keyframe));
             }
 
-            ~KeyframeHandler(){};
+            void onEvent(TickEvent* tick)
+            {
+                cursor += tick->duration;
 
-            void onEvent(TickEvent* tick);       
+                for (auto keyframelist : keyframes) {
+                    auto list = keyframelist.second;
+                    auto first = list.at(0)
+                    uint64_t firsttime = list.firstfirst;
+
+                    auto firstframe = keyframelist
+                }
+            }
     };
 }
 

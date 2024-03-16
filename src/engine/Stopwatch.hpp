@@ -25,7 +25,7 @@ namespace engine
                 timeStart = high_resolution_clock::now();
             }
 
-            long long timer(bool reset = true)
+            uint64_t timer(bool reset = true)
             {
                 if (! reset) {
                     return duration_cast<microseconds>(high_resolution_clock::now() - timeStart).count();
@@ -43,7 +43,7 @@ namespace engine
                 timeStop = high_resolution_clock::now();
             }
 
-            long long duration()
+            uint64_t duration()
             {
                 return duration_cast<microseconds>(timeStop - timeStart).count();
             }

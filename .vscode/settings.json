@@ -68,5 +68,9 @@
         "numbers": "cpp"
     },
     "C_Cpp.default.cppStandard": "c++23",
-    "C_Cpp.default.compilerPath": "/usr/bin/g++"
+    "C_Cpp.default.compilerPath": "/usr/bin/g++",
+    "workbench.tree.indent": 17,
+    "workbench.tree.renderIndentGuides": "always",
+    "window.zoomLevel": -0.5,
+    "editor.fontSize": 13
 }

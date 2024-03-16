@@ -28,7 +28,7 @@ namespace engine
 
             static Engine& instance;
 
-            Stopwatch stopwatchEngine, stopwatchTicker;
+            Stopwatch stopwatchThreshold, stopwatchTicker, stopwatchEngine;
 
         public:
             Engine(Engine const&) = delete;
@@ -37,8 +37,8 @@ namespace engine
 
             bool running = true;
 
-            long long maxIterations = 10;
-            long long iterations = 0;
+            uint64_t maxIterations = 10;
+            uint64_t iterations = 0;
 
             int tickThreshold = 100;
             int tickThresholdCount = tickThreshold;
@@ -62,8 +62,9 @@ namespace engine
 
                 long long duration = 0;
                 auto tickEvent = new TickEvent(0);
-                stopwatchEngine.start();
+                stopwatchThreshold.start();
                 stopwatchTicker.start();
+                stopwatchEngine.start();
 
                 while (running) {
                     iterations++;
@@ -71,7 +72,7 @@ namespace engine
                     Dispatcher<EngineTimingEvent<EngineTimingEventTypeEnum::ITERATION>>
                         ::dispatch(new EngineTimingEvent<EngineTimingEventTypeEnum::ITERATION>());
 
-                    tickThresholdCount -= stopwatchEngine.timer();
+                    tickThresholdCount -= stopwatchThreshold.timer();
 
                     if (tickThresholdCount < 0) {
                         tickThresholdCount += tickThreshold;
