@@ -22,15 +22,25 @@ class EngineOperator :
     public Listener<EngineTimingEvent<STOP>>,
     public Listener<EngineTimingEvent<CLEANUP>>
 {
-    public:
-        EngineOperator(){}
+public:
+    EngineOperator()
+    {
+    }
 
-        void onEvent(TickEvent* tickEvent){ printf("tickEvent(%ld)\n", tickEvent->duration); };
-        void onEvent(EngineTimingEvent<INITIALISATION>*){ printf("Main::Initialisation()\n"); };
-        void onEvent(EngineTimingEvent<START>*){ printf("Main::Start()\n"); };
-        void onEvent(EngineTimingEvent<ITERATION>*){ printf("Main::Iteration()\n"); };
-        void onEvent(EngineTimingEvent<STOP>*){ printf("Main::Stop()\n"); };
-        void onEvent(EngineTimingEvent<CLEANUP>*){ printf("Main::Cleanup()\n"); };
+    void onEvent(TickEvent* tickEvent) override
+    {
+        printf("tickEvent(%ld)\n", tickEvent->duration);
+    };
+
+    void onEvent(EngineTimingEvent<INITIALISATION>*) override
+    {
+        printf("Main::Initialisation()\n");
+    };
+
+    void onEvent(EngineTimingEvent<START>*) override { printf("Main::Start()\n"); };
+    void onEvent(EngineTimingEvent<ITERATION>*) { printf("Main::Iteration()\n"); };
+    void onEvent(EngineTimingEvent<STOP>*) { printf("Main::Stop()\n"); };
+    void onEvent(EngineTimingEvent<CLEANUP>*) { printf("Main::Cleanup()\n"); };
 };
 
 int main()
