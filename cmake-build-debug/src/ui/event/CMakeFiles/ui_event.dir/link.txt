@@ -1,0 +1,2 @@
+/usr/bin/ar qc libui_event.a  CMakeFiles/ui_event.dir/UIEvent.cpp.o
+/usr/bin/ranlib libui_event.a

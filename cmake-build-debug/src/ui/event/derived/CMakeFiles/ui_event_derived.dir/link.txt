@@ -1,0 +1,2 @@
+/usr/bin/ar qc libui_event_derived.a  CMakeFiles/ui_event_derived.dir/ClickEvent.cpp.o
+/usr/bin/ranlib libui_event_derived.a
