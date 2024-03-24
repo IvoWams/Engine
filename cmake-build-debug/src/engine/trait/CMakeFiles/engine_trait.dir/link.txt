@@ -1,2 +1,0 @@
-/usr/bin/ar qc libengine_trait.a  
-/usr/bin/ranlib libengine_trait.a

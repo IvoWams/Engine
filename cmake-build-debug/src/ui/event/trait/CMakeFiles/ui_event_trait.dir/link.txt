@@ -1,2 +1,0 @@
-/usr/bin/ar qc libui_event_trait.a  CMakeFiles/ui_event_trait.dir/TargetsElement.cpp.o
-/usr/bin/ranlib libui_event_trait.a

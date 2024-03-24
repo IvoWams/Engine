@@ -1,2 +1,0 @@
-/usr/bin/ar qc libengine_event.a  
-/usr/bin/ranlib libengine_event.a

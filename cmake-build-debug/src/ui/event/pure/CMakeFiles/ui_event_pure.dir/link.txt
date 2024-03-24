@@ -1,2 +1,0 @@
-/usr/bin/ar qc libui_event_pure.a  CMakeFiles/ui_event_pure.dir/KeyEvent.cpp.o
-/usr/bin/ranlib libui_event_pure.a
