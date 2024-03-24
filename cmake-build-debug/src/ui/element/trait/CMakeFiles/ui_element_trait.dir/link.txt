@@ -1,0 +1,2 @@
+/usr/bin/ar qc libui_element_trait.a  CMakeFiles/ui_element_trait.dir/Hoverable.cpp.o CMakeFiles/ui_element_trait.dir/Inputtable.cpp.o CMakeFiles/ui_element_trait.dir/Clickable.cpp.o
+/usr/bin/ranlib libui_element_trait.a

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="test_ui"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\event\;CMake Files\src\ui\;CMake Files\src\ui\element\;CMake Files\src\ui\element\trait\;CMake Files\src\ui\event\;CMake Files\src\ui\event\derived\;CMake Files\src\ui\event\pure\;CMake Files\src\ui\event\trait\;CMake Files\src\memory\;CMake Files\src\memory\recycler\;CMake Files\src\engine\;CMake Files\src\engine\event\;CMake Files\src\engine\trait\;CMake Files\test\;CMake Files\test\ui\;CMake Files\test\recycler\;CMake Files\test\engine\;CMake Files\test\event\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ivo/projects/private/Engine/cmake-build-debug/test/ui"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_ui">
+				<Option output="/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/test_ui" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ivo/projects/private/Engine/cmake-build-debug/test/ui"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ivo/projects/private/Engine/src"/>
+					<Add directory="/home/ivo/projects/private/Engine/test/ui/src"/>
+					<Add directory="/home/ivo/projects/private/Engine"/>
+					<Add directory="/home/ivo/projects/private/Engine/src/ui/event"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 test_ui"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_ui/fast">
+				<Option output="/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/test_ui" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ivo/projects/private/Engine/cmake-build-debug/test/ui"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ivo/projects/private/Engine/src"/>
+					<Add directory="/home/ivo/projects/private/Engine/test/ui/src"/>
+					<Add directory="/home/ivo/projects/private/Engine"/>
+					<Add directory="/home/ivo/projects/private/Engine/src/ui/event"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 test_ui/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ivo/projects/private/Engine/cmake-build-debug/test/ui/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ivo/projects/private/Engine/test/ui/main.cpp">
+			<Option target="test_ui"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/event/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\event\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/element/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\element\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/element/trait/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\element\trait\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/event/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\event\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/event/derived/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\event\derived\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/event/pure/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\event\pure\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/ui/event/trait/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\ui\event\trait\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/memory/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\memory\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/memory/recycler/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\memory\recycler\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\engine\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/engine/event/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\engine\event\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/src/engine/trait/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\engine\trait\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/test/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/test/ui/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\ui\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/test/recycler/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\recycler\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/test/engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\engine\"/>
+		</Unit>
+		<Unit filename="/home/ivo/projects/private/Engine/test/event/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\test\event\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
