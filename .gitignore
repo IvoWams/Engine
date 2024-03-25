@@ -4,6 +4,7 @@ main
 **/*.exe
 *.a
 *.o
+*.gch
 *.
 build/
 cmake-build-debug/
