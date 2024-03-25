@@ -16,10 +16,9 @@ namespace keyframe
         public Progressable,
         public Recycler<KeyframeHandler<T>>
     {
-        private:
-            static std::map<T*, std::map<uint64_t, Keyframe<T>*>> keyframes;
+        static std::map<T*, std::map<uint64_t, Keyframe<T>*>> keyframes;
 
-            uint64_t cursor{};
+        uint64_t cursor{};
 
         public:
             static void add(T&, Keyframe<T>*);

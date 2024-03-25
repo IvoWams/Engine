@@ -1,10 +1,8 @@
 
 #include <iostream>
 #include "memory/recycler/Recycler.hpp"
-#include "memory/recycler/RecyclerManager.hpp"
 
 using memory::recycler::Slot;
-using memory::recycler::RecyclerManager;
 using memory::recycler::Recycler;
 
 class Obj : public Recycler<Obj>
@@ -23,11 +21,27 @@ class Obj : public Recycler<Obj>
         }
 };
 
+class Obj2 : public Recycler<Obj2>
+{
+    public:
+        Obj2()
+        {
+            printf("%s\n", __func__);
+        }
+
+        ~Obj2()
+        {
+            printf("%s\n", __func__);
+        }
+};
+
 int main()
 {
+    // auto slots = RecyclerManager<Obj>::slots;
+
     auto obj1 = new Obj();
     printf("obj1 = %p\n", obj1);
-    auto obj2 = new Obj();
+    auto obj2 = new Obj2();
     printf("obj2 = %p\n", obj2);
     delete(obj1);
     printf("Deleted obj1\n");

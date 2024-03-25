@@ -1,6 +1,7 @@
 add_library(
     keyframe_algorithm
     KeyframeAlgorithm.hpp
+    KeyframeAlgorithm.cpp
     Linear.hpp
 <<<<<<< HEAD
     KeyframeHandler.cpp

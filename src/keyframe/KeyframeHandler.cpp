@@ -2,14 +2,7 @@
 
 namespace keyframe
 {
-    template <typename T>
-    void KeyframeHandler<T>::add(
-        T& value, 
-        Keyframe<T>* keyframe
-    )
-    {
-        keyframes[value].insert(std::pair(keyframe->start, keyframe));
-    }
+
 
     template <typename T>
     void KeyframeHandler<T>::onEvent(TickEvent* tick)

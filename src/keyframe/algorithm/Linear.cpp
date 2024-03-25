@@ -3,49 +3,15 @@
 namespace keyframe::algorithm
 {
     template <typename T>
-<<<<<<< HEAD
-    void Linear::iterate(Keyframe<T>* keyframe, uint64_t time)
+    void Linear<T>::progress(float percentage, Keyframe<T>* keyframe)
     {
-        if (keyframe->status == KeyframeStatusEnum::FINISHED) {
+        if (std::is_pointer_v<T>)
+        {
+            // Do nothing for now...
             return;
         }
 
-        if (keyframe->status == KeyframeStatusEnum::NOT_STARTED) {
-=======
-    void Linear<T>::iterate(Keyframe<T>* keyframe, uint64_t time)
-    {
-        if (keyframe->status == FINISHED) {
-            return;
-        }
-
-        if (keyframe->status == NOT_STARTED) {
->>>>>>> 09b9cb25913c857f164f1ce352955e8db68d18ac
-            if (time < keyframe->startTime) {
-                return;
-            }
-
-            keyframe->cursor = keyframe->startTime;
-            keyframe->subject = keyframe->startValue;
-<<<<<<< HEAD
-            keyframe->status = KeyframeStatusEnum::IN_PROGRESS;
-=======
-            keyframe->status = IN_PROGRESS;
->>>>>>> 09b9cb25913c857f164f1ce352955e8db68d18ac
-        }
-
-        // IN_PROGRESS:
-        if (time >= keyframe->endTime) {
-            keyframe->subject = keyframe->endValue;
-<<<<<<< HEAD
-            keyframe->status = KeyframeStatusEnum::FINISHED;
-=======
-            keyframe->status = FINISHED;
->>>>>>> 09b9cb25913c857f164f1ce352955e8db68d18ac
-            return;
-        }
-
-        // Actual calculation here, rest could be DRY
-        auto delta = time - keyframe->cursor;
-        keyframe->subject += (keyframe->endValue - keyframe->subject) / delta;
-    }    
+        T diff = keyframe->endValue - keyframe->startValue;
+        keyframe->subject = diff * percentage + keyframe->startValue;
+    }
 }

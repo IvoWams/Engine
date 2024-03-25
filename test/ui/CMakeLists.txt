@@ -2,7 +2,7 @@ project(test_ui)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-project(test_ui VERSION 0.1.0 LANGUAGES CXX)
+project(test_ui LANGUAGES CXX)
 
 SET(CMAKE_CXX_FLAGS_DEBUG "-g")
 

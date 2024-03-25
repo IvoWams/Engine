@@ -2,7 +2,6 @@ add_library(
     memory_recycler
     Slot.hpp
     Recycler.hpp
-    RecyclerManager.hpp
 )
 
 set_target_properties(memory_recycler PROPERTIES LINKER_LANGUAGE CXX)

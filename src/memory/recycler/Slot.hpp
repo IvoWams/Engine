@@ -20,6 +20,11 @@ namespace memory::recycler
                 memory = static_cast<T*>(malloc(sizeof(T)));
             };
 
+            virtual ~Slot()
+            {
+                printf("oi\n");
+            }
+
             T* memory = nullptr;
             bool active = true;
     };

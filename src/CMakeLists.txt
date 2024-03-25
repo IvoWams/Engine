@@ -2,7 +2,7 @@
 # include(CTest)
 # enable_testing()
 
-# add_executable(Engine main.cpp)
+# add_executable(Engine linear.cpp)
 
 # set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 # set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
@@ -18,7 +18,7 @@ add_subdirectory(keyframe)
 
 
 
-# add_executable(engine ../test/ui/main.cpp)
+# add_executable(engine ../test/ui/linear.cpp)
 
 # target_link_libraries(engine event)
 # target_link_libraries(engine ui)
